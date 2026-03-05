@@ -1,7 +1,7 @@
 ## ADDED Requirements
 
 ### Requirement: Loser message
-The player who reaches 3 points SHALL see the message "Next time, but not today." (in Russian: "В следующий раз, но не сегодня").
+The player who reaches 3 points SHALL see the message "Next time, but not today" (in Russian: "В следующий раз, но не сегодня").
 
 #### Scenario: Loser sees message
 - **WHEN** a player's score reaches 3

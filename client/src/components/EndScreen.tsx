@@ -44,7 +44,7 @@ export const EndScreen: React.FC<EndScreenProps> = ({ winner, winnerPhrase, play
           </>
         ) : (
           <>
-            <div className="loser-text">Next time, but not today.</div>
+            <div className="loser-text">Next time, but not today</div>
             <p style={{ marginTop: '1rem', color: 'var(--text-secondary)' }}>
               {winnerPhrase || (winner && `${winner.name} набрал ${winner.score} очков и стал главным виновным!`)}
             </p>
