@@ -25,7 +25,7 @@ describe('EndScreen', () => {
   it('should display final scores', () => {
     const winner = mockPlayers[1];
     render(<EndScreen winner={winner} winnerPhrase={null} players={mockPlayers} onPlayAgain={vi.fn()} />);
-    expect(screen.getByText('Final Scores')).toBeInTheDocument();
+    expect(screen.getByText('Итоговый счет')).toBeInTheDocument();
     expect(screen.getByText('Current Player')).toBeInTheDocument();
     expect(screen.getByText('Winner Player')).toBeInTheDocument();
   });

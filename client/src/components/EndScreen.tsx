@@ -52,7 +52,7 @@ export const EndScreen: React.FC<EndScreenProps> = ({ winner, winnerPhrase, play
         )}
 
         <div style={{ margin: '2rem 0' }}>
-          <h3 style={{ marginBottom: '1rem', color: 'var(--text-secondary)' }}>Final Scores</h3>
+          <h3 style={{ marginBottom: '1rem', color: 'var(--text-secondary)' }}>Итоговый счет</h3>
           {players.map(player => (
             <div 
               key={player.id} 
