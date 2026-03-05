@@ -1,0 +1,35 @@
+{
+  "name": "after_attack",
+  "version": "1.0.0",
+  "description": "After Attack (Security Blame) Game",
+  "main": "index.js",
+  "scripts": {
+    "server": "ts-node server/src/index.ts",
+    "client": "cd client && npm run dev",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "build": "cd client && npm run build",
+    "test": "npm run test:unit && npm run test:e2e",
+    "test:unit": "cd client && npm run test:run",
+    "test:e2e": "playwright test",
+    "test:ui": "cd client && npm run test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "socket.io": "^4.8.3"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.58.2",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.6",
+    "@types/node": "^25.3.2",
+    "@types/socket.io": "^3.0.1",
+    "concurrently": "^9.2.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  }
+}
