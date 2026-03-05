@@ -5,7 +5,7 @@ interface TechnicalSupportProps {
   onClose: () => void;
 }
 
-const SUPPORT_URL = "https://t.me/LukinVitaly";
+const SUPPORT_URL = "https://t.me/+AQgpJzP4t4thMzdi";
 
 export const TechnicalSupport: React.FC<TechnicalSupportProps> = ({ onClose }) => {
   return (
@@ -17,8 +17,8 @@ export const TechnicalSupport: React.FC<TechnicalSupportProps> = ({ onClose }) =
             <QRCodeSVG value={SUPPORT_URL} size={200} />
           </div>
           <p style={{ color: 'var(--text-secondary)', marginTop: '1rem' }}>
-            <a href="https://t.me/LukinVitaly" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent)' }}>
-              https://t.me/LukinVitaly
+            <a href="https://t.me/+AQgpJzP4t4thMzdi" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent)' }}>
+              https://t.me/+AQgpJzP4t4thMzdi
             </a>
           </p>
         </div>

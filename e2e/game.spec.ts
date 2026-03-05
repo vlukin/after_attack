@@ -38,7 +38,7 @@ test.describe('Login Screen', () => {
   test('should open Technical Support modal with QR code', async ({ page }) => {
     await page.goto('/');
     await page.getByText('Technical Support').click();
-    await expect(page.getByText('https://t.me/LukinVitaly')).toBeVisible();
+    await expect(page.getByText('https://t.me/+AQgpJzP4t4thMzdi')).toBeVisible();
     await expect(page.locator('svg')).toBeVisible();
   });
 });
