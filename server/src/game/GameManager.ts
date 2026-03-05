@@ -2,6 +2,7 @@ import type { Player, GameState, SecurityEvent, Excuse } from '../types';
 import { generateRandomName, generateRandomDepartment } from '../data/dictionaries';
 import { getRandomEvent, getExcuseByType } from '../data/events';
 import lastWords from '../data/last_words.json';
+import logger from '../logger';
 
 const MAX_PLAYERS = 3;
 const POINTS_TO_WIN = 5;
@@ -57,7 +58,7 @@ export class GameManager {
         timeRemaining: MATCHMAKING_TIMEOUT
       };
       this.rooms.set(room.id, room);
-      console.log(`[${room.id}] Created new room`);
+      logger.info(`[${room.id}] Created new room`);
     }
 
     const player: Player = {
@@ -102,7 +103,7 @@ export class GameManager {
             clearTimeout(room.matchmakingTimeout);
           }
           this.rooms.delete(room.id);
-          console.log(`[${room.id}] Room deleted (no players)`);
+          logger.info(`[${room.id}] Room deleted (no players)`);
         }
         break;
       }
@@ -147,7 +148,7 @@ export class GameManager {
       room.matchmakingTimeout = null;
     }
 
-    console.log(`[${room.id}] Starting game with ${room.players.length} players`);
+    logger.info(`[${room.id}] Starting game with ${room.players.length} players`);
 
     const botsNeeded = MAX_PLAYERS - room.players.length;
     for (let i = 0; i < botsNeeded; i++) {
@@ -174,7 +175,7 @@ export class GameManager {
   }
 
   private startGameWithBots(room: GameRoom): void {
-    console.log(`[${room.id}] Starting game with bots, ${room.players.length} players`);
+    logger.info(`[${room.id}] Starting game with bots, ${room.players.length} players`);
 
     const botsNeeded = MAX_PLAYERS - room.players.length;
     for (let i = 0; i < botsNeeded; i++) {

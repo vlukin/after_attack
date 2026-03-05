@@ -6,6 +6,7 @@ import { GameManager } from './game/GameManager';
 import { adjectivesEN, animalNounsEN, adjectives, animalNouns, departments } from './data/dictionaries';
 import { securityEvents, excuses } from './data/events';
 import lastWords from './data/last_words.json';
+import logger from './logger';
 
 const app = express();
 app.use(cors());
@@ -53,26 +54,26 @@ function sanitizeUsername(username: string | undefined | null): string {
 const gameManager = new GameManager(io);
 
 io.on('connection', (socket) => {
-  console.log(`[${gameManager.getSessionId()}] Client connected:`, socket.id);
+  logger.info(`Client connected:`, socket.id);
 
   socket.on('joinGame', (username: string) => {
     const sanitized = sanitizeUsername(username);
-    console.log(`[${gameManager.getSessionId()}] Player joining: ${sanitized} (${socket.id})`);
+    logger.info(`Player joining: ${sanitized} (${socket.id})`);
     gameManager.addPlayer(socket.id, sanitized);
   });
 
   socket.on('makeBlame', ({ targetPlayerId }: { targetPlayerId: string }) => {
-    console.log(`[${gameManager.getSessionId()}] Blame made:`, socket.id, '->', targetPlayerId);
+    logger.info(`Blame made:`, socket.id, '->', targetPlayerId);
     gameManager.makeBlame(socket.id, targetPlayerId);
   });
 
   socket.on('playAgain', () => {
-    console.log(`[${gameManager.getSessionId()}] Play again:`, socket.id);
+    logger.info(`Play again:`, socket.id);
     gameManager.reset();
   });
 
   socket.on('disconnect', () => {
-    console.log(`[${gameManager.getSessionId()}] Client disconnected:`, socket.id);
+    logger.info(`Client disconnected:`, socket.id);
     gameManager.removePlayer(socket.id);
   });
 });
@@ -80,5 +81,5 @@ io.on('connection', (socket) => {
 const PORT = process.env.PORT || 3001;
 
 httpServer.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+  logger.info(`Server running on port ${PORT}`);
 });
