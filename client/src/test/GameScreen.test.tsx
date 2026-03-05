@@ -57,7 +57,7 @@ describe('GameScreen', () => {
 
   it('should show blame instruction', () => {
     render(<GameScreen gameState={mockGameState} onBlame={vi.fn()} />);
-    expect(screen.getByText(/Подарить проблему/i)).toBeInTheDocument();
+    expect(screen.getByText(/Указать виновного/i)).toBeInTheDocument();
   });
 
   it('should allow selecting bot players', () => {
@@ -70,7 +70,7 @@ describe('GameScreen', () => {
 
   it('should display penalty points counter', () => {
     render(<GameScreen gameState={mockGameState} onBlame={vi.fn()} />);
-    expect(screen.getByText('Penalty Points:')).toBeInTheDocument();
+    expect(screen.getByText('Штрафные очки:')).toBeInTheDocument();
   });
 
   it('should display Technical Support button', () => {

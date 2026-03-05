@@ -66,7 +66,7 @@ export const GameScreen: React.FC<GameScreenProps> = ({ gameState, onBlame }) =>
         borderRadius: '8px',
         border: '1px solid var(--border-glass)'
       }}>
-        <span style={{ color: 'var(--accent)', fontWeight: 600 }}>Penalty Points:</span>
+        <span style={{ color: 'var(--accent)', fontWeight: 600 }}>Штрафные очки:</span>
         <div style={{ display: 'flex', gap: '0.25rem' }}>
           {gameState.players.map(p => (
             <div key={p.id} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginLeft: '1rem' }}>
@@ -103,7 +103,7 @@ export const GameScreen: React.FC<GameScreenProps> = ({ gameState, onBlame }) =>
 
       {gameState.currentEvent && (
         <div className="glass-panel event-display" style={{ maxWidth: '700px', width: '100%' }}>
-          <div className="event-title">Security Incident</div>
+          <div className="event-title">Недопустимое событие</div>
           <div className="event-text">{gameState.currentEvent.event}</div>
           <div className="event-consequences">
             <div className="event-title">Последствия</div>
@@ -115,7 +115,7 @@ export const GameScreen: React.FC<GameScreenProps> = ({ gameState, onBlame }) =>
       {gameState.status === 'playing' && (
         <>
           <p style={{ margin: '1rem 0', color: 'var(--text-secondary)' }}>
-            Подарить проблему
+            Указать виновного
           </p>
           <div className="players-grid">
             {gameState.players.map(player => {
