@@ -397,8 +397,8 @@ export class GameManager {
     return 'no-session';
   }
 
-  reset(): void {
-    const socketId = arguments[0];
+  reset(socketId?: string): void {
+    if (!socketId) return;
     const room = this.findRoomBySocketId(socketId);
     if (!room) return;
     
