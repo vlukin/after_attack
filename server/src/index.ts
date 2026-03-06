@@ -69,7 +69,7 @@ io.on('connection', (socket) => {
 
   socket.on('playAgain', () => {
     logger.info(`Play again:`, socket.id);
-    gameManager.reset();
+    gameManager.reset(socket.id);
   });
 
   socket.on('disconnect', () => {

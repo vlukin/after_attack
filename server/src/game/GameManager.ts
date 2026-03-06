@@ -398,7 +398,8 @@ export class GameManager {
   }
 
   reset(): void {
-    const room = this.findRoomBySocketId(arguments[0]);
+    const socketId = arguments[0];
+    const room = this.findRoomBySocketId(socketId);
     if (!room) return;
     
     if (room.matchmakingTimeout) {
@@ -415,6 +416,8 @@ export class GameManager {
     room.winner = null;
     room.winnerPhrase = null;
     room.currentRound = 0;
+    room.timerStarted = false;
+    room.timeRemaining = MATCHMAKING_TIMEOUT;
   }
 }
 
