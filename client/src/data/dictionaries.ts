@@ -1,6 +1,6 @@
 import type { SecurityEvent, Excuse } from '../types';
 
-const API_URL = 'http://localhost:3001';
+const API_URL = `${window.location.protocol}//${window.location.hostname}:3001`;
 
 interface DictionariesData {
   adjectivesEN: string[];

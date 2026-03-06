@@ -1,6 +1,6 @@
 import { io, Socket } from 'socket.io-client';
 
-const SERVER_URL = 'http://localhost:3001';
+const SERVER_URL = `${window.location.protocol}//${window.location.hostname}:3001`;
 
 class GameService {
   private socket: Socket | null = null;
