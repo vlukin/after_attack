@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import type { Player } from '../types';
 import TechnicalSupport from './TechnicalSupport';
+import { playSound } from '../utils/sounds';
 
 interface EndScreenProps {
   winner: Player | null;
@@ -20,7 +21,10 @@ export const EndScreen: React.FC<EndScreenProps> = ({ winner, winnerPhrase, play
   useEffect(() => {
     setAnimateIn(true);
     if (isWinner) {
+      playSound('win');
       setTimeout(() => setShowFireworks(true), 500);
+    } else {
+      playSound('lose');
     }
   }, [isWinner]);
 

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import type { GameState } from '../types';
 import TechnicalSupport from './TechnicalSupport';
+import { playSound } from '../utils/sounds';
 
 interface GameScreenProps {
   gameState: GameState;
@@ -48,6 +49,7 @@ export const GameScreen: React.FC<GameScreenProps> = ({ gameState, onBlame }) =>
   const handleSelectPlayer = (playerId: string) => {
     if (selectedPlayer || gameState.blameTarget) return;
     setSelectedPlayer(playerId);
+    playSound('select');
     onBlame(playerId);
   };
 
